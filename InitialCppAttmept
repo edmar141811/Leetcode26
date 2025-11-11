@@ -1,0 +1,31 @@
+/*
+Runtime 56ms
+Beats 5.07%
+
+Memory 21.21 MB
+Beats 100.00%
+
+While the memory space taken up is great, the runtime needs severe improvement 
+will add comments soon
+*/
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int fullList= nums.size();
+        int tracker1=0;
+        int tracker2=1;
+        int deletiens=0;
+        while(deletiens+tracker2 < fullList){
+            if(nums[tracker1]==nums[tracker2]){
+                nums.erase(nums.begin()+tracker1);
+                deletiens++;
+            }
+            else{
+                tracker1++;
+                tracker2++;
+            }
+        }
+        return fullList - deletiens;
+    }  
+};
